@@ -22,6 +22,12 @@ app.use(express.json());
 
 const port = process.env.PORT || 3001;
 
+//hello world route
+app.get('/', (req:any, res:any) => {
+    res.send('Hello World!');
+});
+
+
 //receive messageData from portfolio and send it to mailgun
 app.post('/send', (req:any, res:any) => {
     const { name, email, message } = req.body;
