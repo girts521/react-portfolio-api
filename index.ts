@@ -12,10 +12,11 @@ const client = mailgun({apiKey: API_KEY, domain: DOMAIN, host:'api.eu.mailgun.ne
 const app = express();
 
 //allow cors from localhost 3000
-app.use(cors({
-    origin: "*",
-    credentials: true
-}));
+app.use(
+    cors({
+        origin: "https://www.gkarcevskis.com/"
+    })
+);
 
 //parse json
 app.use(express.json());
