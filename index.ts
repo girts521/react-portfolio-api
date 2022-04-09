@@ -14,7 +14,7 @@ const app = express();
 //allow cors from localhost 3000
 app.use(
     cors({
-        origin: "https://www.gkarcevskis.com/"
+        origin: "https://www.gkarcevskis.com"
     })
 );
 
