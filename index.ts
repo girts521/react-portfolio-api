@@ -13,7 +13,7 @@ const app = express();
 
 //allow cors from localhost 3000
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://gkarcevskis.com',
     credentials: true
 }));
 
@@ -22,7 +22,7 @@ app.use(express.json());
 
 const port = process.env.PORT || 3001;
 
-//receive messageData from localhost:3000 and send it to mailgun
+//receive messageData from portfolio and send it to mailgun
 app.post('/send', (req, res) => {
     const { name, email, message } = req.body;
 
@@ -32,13 +32,24 @@ app.post('/send', (req, res) => {
         subject: 'Portfolio message',
         text: message
     };
-    
-    client.messages().send(data, function (error:unknown, body:unknown) {
+
+    client.messages().send(data, function (error:string, body:string) {
         console.log('body: ',body);
         if(error){
-            console.log(error)
+            console.log('error: ',error);
+            res.json({
+                status: 418,
+                sent: false,
+                message: error
+            })
+        }else{
+            res.json({
+                status: 200,
+                sent: true
+            })
         }
     });
+
 
 });
 
