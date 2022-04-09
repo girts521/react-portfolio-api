@@ -1,7 +1,7 @@
 require('dotenv').config()
 
-import express from 'express';
-import cors from 'cors';
+const express = require('express');
+const cors = require('cors');
 
 const mailgun = require("mailgun-js");
 
@@ -13,7 +13,7 @@ const app = express();
 
 //allow cors from localhost 3000
 app.use(cors({
-    origin: "*",
+    origin: "https://www.gkarcevskis.com/",
     credentials: true
 }));
 
@@ -23,7 +23,7 @@ app.use(express.json());
 const port = process.env.PORT || 3001;
 
 //receive messageData from portfolio and send it to mailgun
-app.post('/send', (req, res) => {
+app.post('/send', (req:any, res:any) => {
     const { name, email, message } = req.body;
 
     const data = {
