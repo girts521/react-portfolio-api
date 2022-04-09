@@ -13,7 +13,7 @@ const app = express();
 
 //allow cors from localhost 3000
 app.use(cors({
-    origin: 'http://gkarcevskis.com',
+    origin: 'http://www.gkarcevskis.com',
     credentials: true
 }));
 
