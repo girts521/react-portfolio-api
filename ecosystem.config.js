@@ -1,7 +1,7 @@
 module.exports = {
   apps : [{
     name: "gkarcevskis-portfolio-api",
-    script: "./index.ts",
+    script: "./dist/index.js",
     instances: "2",
     env: {
       NODE_ENV: "development",
